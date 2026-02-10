@@ -22,6 +22,12 @@ app.delete("/admin/deleteData", (req,res) =>{
     res.send("Data deleted successfully");
 });
 
+app.use("/", (err,res,req,next)=>{
+    if(err){
+        res.status(500).send("Something went wrong");
+    }
+})
+
 app.listen(3000, () =>{
     console.log("server is successfully listening on port 3000");
 });
